@@ -1,62 +1,64 @@
-# tunely lab
+# <img src="https://cloud.githubusercontent.com/assets/7833470/10899314/63829980-8188-11e5-8cdd-4ded5bcb6e36.png" height="60">  tunely lab
 
 Full CRUD SPA with mongoose and Express.
 
+<img src="http://i1.wp.com/www.sarahthegringa.com/wp-content/uploads/2016/03/chilca-mud-bath.jpg?zoom=2&resize=800%2C445" alt="jubilant woman in mud bath" width="300px">  
+_**This** CRUD SPA is a data-driven single-page application!_
+
 Prerequisites:
 * jQuery, AJAX
-  * `$('asdf').on('click', '.add-song'`
+  * `$('asdf').on('click', '.add-song', ...`
   * `$.get`
   * `$.post`
-  * `$(document).ready(function() `
+  * `$(document).ready(function() { ... `
 * Express server, static assets
 * RESTful design
-* JSON serving /api routes
-* Bootstrap - the lab will introduce modals
+* serving JSON with `/api/` routes
+* Bootstrap (this lab will introduce modals!)
 * CRUD with mongoose
   * mongoose embedded relationships
   * Part 3: mongoose references
 * html `data-` attributes
 
 Other tools
-* bower is used, but students need not interact with it
-  * components are automatically installed via an npm postinstall script
+* bower is used but doesn't need to be modified
+  * bower components are automatically installed via npm's `postinstall` script (curious? see `package.json`)
 
 
 ## Overview
 
-This lab begins with a basic front-end to display a list of music albums.  As we progress through we'll:
-* serve the album data from our server's `/api/` routes.
-* get the data from the server using ajax and display it on the page with jQuery
-* retrieve the data from the database
-* add functionality to create a new album
-* add functionality to remove/delete an album
-* add the ability to edit/update an album
-* support storing song information (with full CRUD) (mongoose embedded)
-* add a second major route for artist information  (mongoose reference)
+This lab begins with a basic front-end to display a list of music albums.  As we progress through, we'll:
+* serve the album data from our server's `/api/` routes  
+* get the data from the server using ajax and display it on the page with jQuery  
+* retrieve the data from the database  
+* add functionality to create a new album  
+* add functionality to remove/delete an album  
+* add the ability to edit/update an album  
+* support storing song information (with full CRUD) (mongoose embedded)  
+* add a second major route for artist information  (mongoose reference)  
 
 
 ### Project Planning
 
-It's important to do a good amount of planning and whiteboarding before you start coding.  That'll save you from costly mistakes and help you to refine the eventual user experience before you've invested hours in the project.
+When working on large projects, it's important to do a good amount of planning and whiteboarding before you start coding.  Diligent planning will save you from costly mistakes and help you to refine the user experience before you've spent hours on the project.  The planning techniques and habits you develop here will be essential throughout your career as a web developer.  Every successful company invests time in planning and design, and you should too! As a junior web developer, you'll be expected to carry out plans
 
-We're going to use **"outside-in development"** practices.  This means that we'll start by designing our UI (the outside).
-Then we'll move more inside by connecting it to a backend serving hard-coded data.  Next, we'll retrieve that data from a database.
+We're going to use **"outside-in development"** practices.  This means that we'll start by designing our UI (the outside that will be visible to our users). Then we'll move "inside" by connecting our UI to a server serving hard-coded data.  Next, we'll retrieve that data from a database.
 
-We will also be breaking our work into short **sprints** with specific design goals.  In each sprint we'll try to work outside-in.  
+We will also be breaking our work into short **sprints** with specific design goals.  This is another very common practice in the web development industry. In each sprint, we'll try to work outside-in.  
 
 Let's start with a basic wireframe.  
 
-![Image Alt](docs/assets/images/tunely_wireframe-1.png)
+![simple layout of tunely homepage](docs/assets/images/tunely_wireframe-1.png)
 
-Typically when you work on a project you'll start with a basic idea and do your initial development on paper or whiteboard.  You can develop and "virtually" test your app with wireframes.  There are also a number of software packages that will help you build wireframes.
+Typically when you work on a project, you'll start with a basic idea and do your initial development on paper or whiteboard.  You can develop simple prototypes and "virtually" test your app with wireframes.  If good old fashioned paper or whiteboards aren't your thing, a number of software packages can will help you build wireframes. But remember: a wireframe should include simple diagrams of your site's layout and flow, not full mockups.
 
-In the above you can see we're building a site that displays a list of musical albums.  It also has a jumbotron to introduce users to the page.  This is our starting point only; you'll be responsible for evolving it as we work through the lab.
+In the wireframe above, you can see we're building a site that displays a list of musical albums.  It also has a jumbotron to introduce users to the page.  This is only our starting point; you'll be responsible for evolving it as we work through the lab.
 
 
 ## Getting Started
 
 * fork and clone this lab repo
-* read this doc then proceed to sprint 1
+* read this readme, then proceed to sprint 1
 
 
 ## Sprints
