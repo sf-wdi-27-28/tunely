@@ -81,33 +81,9 @@ For now we're just going to make this super simple and output something like:
 ```
 
 
-1. In `app.js`, create a new function `function buildSongsHtml(songs) {}`.
+1. Modify the handlebars template in your HTML to include a portion that will fill in all the songs for the album. You won't need a new `<script>` tag since the song list will be a part of each album, and you shouldn't need to change the client-side code in `app.js` because it's already rendering the whole template.
 
-1. Make `buildSongsHtml` return the HTML shown above (or similar).  It should take in an **array of songs**.  It should return an **HTML string**.
-
-  <details><summary>Hint: making a long dash &ndash; </summary>
-  Use `&ndash;`
-  </details>
-
-  <details><summary>Hint: `function buildSongsHtml(songs) {}`</summary>
-  ```js  
-  function buildSongsHtml(songs) {
-    var songText = "	&ndash; ";
-    songs.forEach(function(song) {
-       songText = songText + "(" + song.trackNumber + ") " + song.name + " &ndash; ";
-    });
-    var songsHtml  =
-    "                      <li class='list-group-item'>" +
-    "                        <h4 class='inline-header'>Songs:</h4>" +
-    "                         <span>" + songText + "</span>" +
-    "                      </li>";
-    return songsHtml;
-  }
-  ```
-  </details>
-
-1. Now call `buildSongsHtml` from inside `renderAlbum`. Use it to add the 4th `<li>` to each album.
-
+1. Test to make sure this is working.
 
 ## Step 4: Create Songs
 
