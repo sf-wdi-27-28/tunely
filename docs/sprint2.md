@@ -26,9 +26,9 @@ This sprint we will:
 
 1. Edit your `app.js`. When the form is submitted, use jQuery to capture the form values and serialize them.  `console.log` the output and check that it looks somewhat like this sample serialized form data:
 
-```js
-name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop
-```
+ ```js
+ name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop
+ ```
 
 1. Clear the form input values after the data has been captured.
 
