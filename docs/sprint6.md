@@ -11,12 +11,17 @@ Here's a rough idea of what it could look like:
 
 ![Edit Songs Modal](/docs/assets/images/edit_songs.png)
 
-> Make sure your modal's elements don't use the same ids as the other modal does.  id in html must be unique!
+> Make sure your modal's elements don't use the same ids as the other modal does.  *id in html must be unique*!
 
 Objectives:
+
 * allow songs to be edited
 * allow songs to be deleted
 * practice more with bootstrap modal's
+
+> Hey! Good work, partner!
+> You're practically a full-stack cowboy/cowgirl now!  That means you're at home on the range (aka DOM) and we're gonna ask you to solve problems on your own in this sprint.  
+![cowboy](https://m.popkey.co/e5a568/7grXg.gif)
 
 ## Step 1: modalize
 
@@ -28,21 +33,30 @@ Objectives:
 
 1. When 'Edit Songs' is clicked open the modal!
 
-<details><summary>opening a modal with js</summary>
-
-`$('#fooModal').modal('show');`
-
-</details>
+	<details><summary>opening a modal with js</summary>
+	
+	```js
+	// STUDENT! memorizify this!
+	$('#fooModal').modal('show');
+	```
+	
+	</details>
 
 ## Step 2: form
 
-1. Develop a form for editing the song list.  It should be able to (1) delete a song (2) edit each song. Your form will need to be put into an HTML string (write a function for this).
+
+
+1. Develop a form for editing the song list.  It should be able to 
+	(1) delete a song (2) edit each song. Your form should be in a handlebars template.  
+	> You can put the template anywhere in `index.html`.
 
 1. Remember that in order to do a `DELETE /api/albums/:album_id/songs/:id` or a `PUT /api/albums/:album_id/songs/:id` you'll need those `id`s.  Embed them in `data-` attributes in your form.
 
 1. You may want to use a `GET /api/albums/:album_id/songs` index route to get all songs for a particular album.  This is likely easier than retrieving incomplete data from the page.
 
-> A sample HTML string for the form <a href="/docs/code_samples/sprint6_inline_form.js">is provided for you</a>.
+> Sample HTML for the form <a href="/docs/code_samples/sprint6_inline_form.html">is provided for you</a>.
+
+> If using the sample form or following the wireframe, note that you can make each row a separate form if you want.
 
 ## Step 3
 
@@ -53,6 +67,8 @@ Objectives:
 1. Make sure the deleted input is removed as well.
 
 1. Test delete for songs.
+
+	> You may want [to read about subdocs](http://mongoosejs.com/docs/subdocs.html).  In particular, check out the section on finding subdocs and removing subdocs.
 
 1. Ensure that the song list on the page (the main album row that contains this song) is updated as well.
 
@@ -65,12 +81,15 @@ Let's allow users to save their edits.
 
 1. After the user clicks a 'Save' button, make an AJAX `PUT` request for the edited song.  
 
+1. Handle the PUT on the server-side if you haven't yet.
+
 1. Update the page with the changed song.
 
 1. Make sure you test everything.
 
 1. Make sure the modal closes when the close button is clicked.
 
+> Ideally you would send each update, and after the responses for all the updates have been received; then you'd request the album and update the page.  This is totally a **super-super-super-stretch exercise and a really tough challenge**.  Feel free to take the easier approach of just requesting the album and updating the page after every response to your PUT request.
 
 ## Step 5
 
@@ -90,3 +109,8 @@ Let's allow users to save their edits.
 1. Consider using Font Awesome.
 
 1. Server-side validations: make sure track-numbers are unique per album.  
+
+
+## Finally
+
+If you got this far, we are SUPER impressed.  Congratulations!

@@ -42,7 +42,9 @@ Let's add a post route on the server now.  We already know that POST is used to 
 POST  /api/albums
 ```
 
-1. In `server.js`, after the current `GET /api/albums` add a new route.  Start by just `console.log`ing the output and returning the same data you received as json.
+1. In `server.js`, after the current `GET /api/albums` add a new route.  Create the appropriate function (`function create`) in your albums controller.  Start by just `console.log`ing the output and returning the same data you received as json.
+
+  > Don't forget to export the `create` function from the controller or it won't be accessible in `server.js`.
 
 1. Add body-parser to the server.
 
@@ -50,10 +52,12 @@ POST  /api/albums
 
 curl:
 ```bash
- curl -X POST http://localhost:3000/api/albums --data "name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop
+ curl -X POST http://localhost:3000/api/albums --data "name=Marble+House&textinput=The+Knife&releaseDate=2006&genres=electronica%2C+synth+pop%2C+trip+hop"
 ```
 
 > Hint: If using postman to POST set the BODY type to x-www-form-urlencoded, then set key-value pairs.
+
+
 
 
 ## Step 4:
@@ -62,7 +66,9 @@ curl:
 
 1. Verify it's getting logged by the server when you submit.
 
-1. On the server-side break the data we're getting in the  `genre` field into an array.
+1. On the server-side break the data we're getting in the `genre` field into an array.
+
+> Hint: the `split` method may be handy here.
 
 ## Step 5:
 
@@ -87,5 +93,7 @@ curl:
 1. Change the form, replacing the textarea for genre with a field that has a button to add a new field for each genre.  See the mockup:
 
 ![add new field button](/docs/assets/images/add_new_field_button.png)
+
+<!-- note the above image works fine on github, but not in the editor -->
 
 1. Convert the form to a modal and add a link to the right-side of the "Albums" header to open it!
