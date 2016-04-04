@@ -2,10 +2,10 @@
 
 ## Overview
 
-Now let's allow our users to edit the Album info.  
+Now let's allow our users to edit the album info.  
 
 This sprint we will:
-* make it so users can edit each Album
+* make it so users can edit each album
 * add a `PUT /api/albums/:id` route to the server
 
 > Note: as we go through this if you get stuck make use of the hints, your neighbors and the solutions.
@@ -16,19 +16,19 @@ This sprint we will:
 
 We're going to add a button that allows our users to edit an album.
 
-1. Add a new button to each panel-footer
+1. Add a new button to each `panel-footer`.
 
-```html
-<button class='btn btn-info edit-album'>Edit Album</button>`
-```
+  ```html
+  <button class='btn btn-info edit-album'>Edit Album</button>`
+  ```
 
-1. Use jQuery to react to clicks on these buttons and determine the correct `Album._id`.  `console.log` it.
+1. Use jQuery to react to clicks on these buttons and determine the correct `album._id`.  `console.log` it.
 
-1. Replace the `Edit` button with a `Save Changes` button when clicked.
+1. When the `Edit` button is clicked, replace it with a `Save Changes` button.
 
-1. Also replace the major fields on the Album with `input` elements.
+1. Also replace the major fields on the album with `input` elements.
 
-> Hint: you could have 2 buttons in place already, 1) "Edit", 2) "Save changes" and simply toggle their visibility with [$.toggle](http://api.jquery.com/toggle/)
+  > Hint: you could have 2 buttons in place already, 1) "Edit", 2) "Save changes" and simply toggle their visibility with [$.toggle](http://api.jquery.com/toggle/)
 
 ## Step 2
 
@@ -49,8 +49,8 @@ We're going to add a button that allows our users to edit an album.
 
 ## Challenges
 
-1. When an edit is in progress disable or hide the other buttons.
+1. When an edit is in progress, disable or hide the other buttons.
 
-1. Add a new modal instead of making changes directly in the album row.
+1. Add a new modal for editing instead of making changes directly in the album row.
 
-1. Add a cancel button for the edits
+1. Add a cancel button for the edits.
