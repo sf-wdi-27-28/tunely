@@ -45,6 +45,12 @@ app.delete('/api/albums/:album', controllers.albums.destroy);
 
 app.put('/api/albums/:album', controllers.albums.update);
 
+app.get('/api/albums/:album/songs', controllers.songs.show);
+
+app.delete('/api/albums/:album/songs/:song', controllers.songs.destroy);
+
+app.put('/api/albums/:album/songs/:song', controllers.songs.update);
+
 /*
  * JSON API Endpoints
  */

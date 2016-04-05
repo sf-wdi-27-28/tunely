@@ -85,8 +85,8 @@ function destroy(req, res) {
 }
 
 function update(req, res) {
-  console.log("in update");
-  console.log(req.params.album);
+  // console.log("in update");
+  // console.log(req.params.album);
   db.Album.findOne({_id:req.params.album}, function(err,album){
     if(err){ res.status(500).json("Sorry, somthing went wrong on our end while searching to delete that album"); }
     else if(!album){ res.status(400).json("Sorry, we couldn't find that album to update it."); }
