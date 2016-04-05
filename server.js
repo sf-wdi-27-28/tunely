@@ -41,6 +41,8 @@ app.post('/api/albums/:album/songs', controllers.songs.create);
 
 app.get('/api/albums/:album', controllers.albums.show);
 
+app.delete('/api/albums/:album', controllers.albums.destroy);
+
 /*
  * JSON API Endpoints
  */

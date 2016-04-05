@@ -27,7 +27,7 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  // FILL ME IN !
+
 }
 
 function update(req, res) {

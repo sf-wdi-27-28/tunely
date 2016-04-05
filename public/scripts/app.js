@@ -51,7 +51,34 @@ $(document).ready(function() {
     $('#songModal').modal('hide');
     $('#songModal').find('input').val('');
   });
+
+  $('#albums').on('click', '.delete-album', function(e){
+    e.preventDefault();
+    var id = $(this).closest('.album').data('album-id');
+    console.log("id: ",id);
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/albums/' + id,
+      success: handleDeleteAlbumSuccess,
+      error: handleDeleteAlbumError
+    });
+  });
+
+
+
+
+
 });
+
+function handleDeleteAlbumSuccess(album){
+  console.log(album);
+  console.log(album._id);
+  $('div').find("[data-album-id='" + album._id + "']").remove();
+}
+
+function handleDeleteAlbumError(json){
+  console.log(json);
+}
 
 function handleNewSongSubmit(e){
   e.preventDefault();

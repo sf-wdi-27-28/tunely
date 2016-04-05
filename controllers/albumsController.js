@@ -77,7 +77,11 @@ function show(req, res) {
 }
 
 function destroy(req, res) {
-  // FILL ME IN !
+  db.Album.findOneAndRemove({_id:req.params.album}, function(err,album){
+    if(err){res.status(500).json("Sorry, something went wrong on our end while searching for that album.");}
+    else if(!album){res.status(400).json("Sorry, we couldn't find that album");}
+    else { res.status(200).json(album); }
+  });
 }
 
 function update(req, res) {
