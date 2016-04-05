@@ -85,7 +85,19 @@ function destroy(req, res) {
 }
 
 function update(req, res) {
-  // FILL ME IN !
+  console.log("in update");
+  console.log(req.params.album);
+  db.Album.findOne({_id:req.params.album}, function(err,album){
+    if(err){ res.status(500).json("Sorry, somthing went wrong on our end while searching to delete that album"); }
+    else if(!album){ res.status(400).json("Sorry, we couldn't find that album to update it."); }
+    else {
+      album.name = req.body.name;
+      album.artistName = req.body.artistName;
+      album.releaseDate = req.body.releasedDate;
+      album.save();
+      res.status(200).json(album);
+    }
+  });
 }
 
 

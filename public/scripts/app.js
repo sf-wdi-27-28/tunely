@@ -1,9 +1,9 @@
 /* CLIENT-SIDE JS
- *
- * You may edit this file as you see fit.  Try to separate different components
- * into functions and objects as needed.
- *
- */
+*
+* You may edit this file as you see fit.  Try to separate different components
+* into functions and objects as needed.
+*
+*/
 
 var albumTemplate;
 var $albumList;
@@ -55,7 +55,7 @@ $(document).ready(function() {
   $('#albums').on('click', '.delete-album', function(e){
     e.preventDefault();
     var id = $(this).closest('.album').data('album-id');
-    console.log("id: ",id);
+    // console.log("id: ",id);
     $.ajax({
       method: 'DELETE',
       url: '/api/albums/' + id,
@@ -64,11 +64,56 @@ $(document).ready(function() {
     });
   });
 
+  $('#albums').on('click', '.edit-album', function(e){
+    e.preventDefault();
+    var id = $(this).closest('.album').data('album-id');
+    console.log("id: ",id);
+    $(this).toggleClass('hidden');
+    $(this).closest('.album').find('.albumUpdate').toggleClass("hidden");
+    $(this).closest('.album').find('.artistUpdate').toggleClass("hidden");
+    $(this).closest('.album').find('.releaseDateUpdate').toggleClass("hidden");
+    $(this).closest('.album').find('.album-name').toggleClass("hidden");
+    $(this).closest('.album').find('.artist-name').toggleClass("hidden");
+    $(this).closest('.album').find('.album-releaseDate').toggleClass("hidden");
+    $(this).closest('.album').find('.save-album-changes').toggleClass("hidden");
+  });
 
+  $('#albums').on('click', '.save-album-changes', function(e){
+    e.preventDefault();
+    var id = $(this).closest('.album').data('album-id');
+    // location.href = 'http://localhost:3000/api/albums/' + id;
+    console.log('/api/albums/' + id);
+    console.log("name:",$(this).closest('.album').find('.albumUpdate').val(),
+            "artist:",$(this).closest('.album').find('.artistUpdate').val(),
+            "releasedDate:",$(this).closest('.album').find('.releaseDateUpdate').val());
+    $.ajax({
+      method: 'PUT',
+      url: '/api/albums/' + id,
+      data: {
+        name: $(this).closest('.album').find('.albumUpdate').val(),
+        artistName: $(this).closest('.album').find('.artistUpdate').val(),
+        releasedDate: $(this).closest('.album').find('.releaseDateUpdate').val()
+      },
+      success: handleUpdateAlbumSuccess,
+      error: handleUpdateAlbumError
+    });
+    // $(this).toggleClass('hidden');
+    // $(this).closest('.album').find('.edit-album').toggleClass("hidden");
+  });
 
 
 
 });
+
+function handleUpdateAlbumSuccess(album){
+  console.log(album);
+  $('div').find("[data-album-id='" + album._id + "']").remove();
+  renderAlbum(album);
+}
+
+function handleUpdateAlbumError(err){
+  console.log(err);
+}
 
 function handleDeleteAlbumSuccess(album){
   console.log(album);

@@ -120,17 +120,20 @@
                     <ul class="list-group">
                       <li class="list-group-item">
                         <h4 class='inline-header'>Album Name:</h4>
+                        <input id="albumUpdate" name="name" type="text" placeholder="" value="{{name}}" class="form-control albumUpdate hidden" required>
                         <span class='album-name'>{{name}}</span>
                       </li>
 
                       <li class="list-group-item">
                         <h4 class='inline-header'>Artist Name:</h4>
                         <span class='artist-name'>{{artistName}}</span>
+                        <input id="artistUpdate" name="artistName" type="text" placeholder="" value="{{artistName}}" class="form-control artistUpdate hidden" required>
                       </li>
 
                       <li class="list-group-item">
                         <h4 class='inline-header'>Released date:</h4>
                         <span class='album-releaseDate'>{{releaseDate}}</span>
+                        <input id="releaseDateUpdate" name="releaseDate" type="text" placeholder="" value="{{releaseDate}}" class="form-control releaseDateUpdate hidden" required>
                       </li>
 
                       <li class="list-group-item">
@@ -151,6 +154,8 @@
 
                 <div class='panel-footer'>
                   <button class="btn btn-primary add-song">Add Song</button>
+                  <button class="btn btn-warning edit-album">Edit Album</button>
+                  <button class="btn btn-info save-album-changes hidden">Save Changes</button>
                   <button class="btn btn-danger delete-album">Delete</button>
                 </div>
 

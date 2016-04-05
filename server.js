@@ -43,6 +43,8 @@ app.get('/api/albums/:album', controllers.albums.show);
 
 app.delete('/api/albums/:album', controllers.albums.destroy);
 
+app.put('/api/albums/:album', controllers.albums.update);
+
 /*
  * JSON API Endpoints
  */
