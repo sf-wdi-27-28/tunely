@@ -1,6 +1,9 @@
 /************
  * DATABASE *
  ************/
+ var db = require('../models');
+
+
 
 /* hard-coded data */
 var albums = [];
@@ -36,15 +39,41 @@ albums.push({
 
 // GET /api/albums
 function index(req, res) {
-  // FILL ME IN !
+  db.Album.find({}, function(err,albums){
+    if (err){ res.status(500).json("Sorry, error on our end!"); }
+    else if(!albums){ res.status(400).json("Sorry, we couldn't find any albums"); }
+    else{
+      res.status(200).json(albums);
+    }
+  });
 }
 
+
+
 function create(req, res) {
-  // FILL ME IN !
+  // console.log(req.body);
+  var newAlbum = new db.Album({
+    artistName: req.body.artistName,
+    name: req.body.name,
+    releaseDate: req.body.releaseDate,
+    image: req.body.image,
+    genres: [req.body.genres]
+  });
+  newAlbum.save(function(err,album){
+    if (err) {
+      res.status(500).json("Sorry! Error on our end while creating that album");
+    } else {
+      res.status(200).json(album);
+    }
+  });
 }
 
 function show(req, res) {
-  // FILL ME IN !
+  db.Album.findOne({_id:req.params.album}, function(err,album){
+    if (err){ res.status(500).json("Sorry, something failed on our end while fnding that file."); }
+    else if (!album) { res.status(400).json("Sorry, couldn't find that album"); }
+    else{ res.status(200).json(album); }
+  });
 }
 
 function destroy(req, res) {
