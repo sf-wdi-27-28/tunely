@@ -138,7 +138,7 @@
 
                         <li class="list-group-item">
                           <h4 class="inline-header">Songs:</h4>
-                          <span>&ndash; {{#each songs}} ({{trackNumber}}) {{name}} &ndash;  {{/each}}</span>
+                          <span class='songs'>&ndash; {{#each songs}} ({{trackNumber}}) {{name}} &ndash;  {{/each}}</span>
                         </li>
 
                       </ul>
@@ -148,12 +148,11 @@
                   <!-- end of album internal row -->
 
                   <div class='panel-footer'>
-                    <div class='panel-footer'>
-                      <button class='btn btn-primary add-song'>Add Song</button>
-                    </div>
-
+                    <button class="btn btn-danger delete-album">Delete Album</button>
+                    <button class='btn btn-info edit-album'>Edit Album</button>`
+                    <button class='btn btn-primary add-song'>Add Song</button>
+                    <button class="btn btn-secondary edit-song">Edit Songs</button>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -163,7 +162,37 @@
 
       </div>
     </section>
-
+    <div class="modal fade bs-modal-lg" id="editSongsModal" tabindex="-1" role="dialog" aria-labelledby="editSongsModalTitle">
+      <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="editSongsModalTitle">Edit Song List</h4>
+          </div>
+          <div class="modal-body" id='editSongsModalBody'>
+            <script id="songlist" type="text/x-handlebars-template">
+            {{#each songsList}}
+            <form class="form-inline song-form" id="{{_id}}" data-song-id="{{_id}}">
+              <div class="form-group">
+                <input type="text" name="trackNumber" class="form-control song-trackNumber" value="{{trackNumber}}">
+              </div>
+              <div class="form-group">
+                <input type="text" name="name" class="form-control song-name" value="{{name}}">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-danger delete-song" data-song-id="{{_id}}">x</button>
+              </div>
+            </form>
+            {{/each}}
+          </script>
+              </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- begin songModal: this is not visible until you call .modal() on it -->
     <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
       <div class="modal-dialog">
